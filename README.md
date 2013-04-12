@@ -1,7 +1,7 @@
 # puppet-params
 
 [![Build
-Status](https://travis-ci.org/[jfryman]/[puppet-params].png)](https://travis-ci.org/[jfryman]/[puppet-params])
+Status](https://travis-ci.org/jfryman/puppet-params.png)](https://travis-ci.org/jfryman/puppet-params)
 
 
 ## Overview
