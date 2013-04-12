@@ -40,7 +40,7 @@ class ntp (
   -> class { 'ntp::config':
     options => params($options, $name),
   }
-  -> class { 'ntp::service':
+  ~> class { 'ntp::service':
     options => params($options, $name),
   }
   -> Class['ntp']
