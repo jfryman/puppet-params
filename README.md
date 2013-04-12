@@ -1,5 +1,9 @@
 # puppet-params
 
+[![Build
+Status](https://travis-ci.org/[jfryman]/[puppet-params].png)](https://travis-ci.org/[jfryman]/[puppet-params])
+
+
 ## Overview
 
 Opinionated Module Development requires helpers within Puppet. This
