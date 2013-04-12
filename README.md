@@ -5,7 +5,7 @@
 Opinionated Module Development requires helpers within Puppet. This
 module contains a single function that assists in bridging the gap with
 data-driven infrastructure and a simplified module design that I discuss
-in my talk (Refactoring Puppet)[https://speakerdeck.com/jfryman/refactoring-puppet]
+in my talk [Refactoring Puppet](https://speakerdeck.com/jfryman/refactoring-puppet)
 
 This module allow a streamlined module structure with complex data
 structures to be passed around, keeping delegation of responsibilities
@@ -24,7 +24,7 @@ function requires a `defaults` hash to exist.
 You then define all of your defaults for each part of the module in this
 data structure. If at any time you need to modify parts of the data
 structure at runtime, you can supply either the entire data structure or
-parts of the data structure on initialization, and params() will handle
+parts of the data structure on initialization, and `params()` will handle
 the merge of the hash for use within Puppet.
 
 ## Code Example
