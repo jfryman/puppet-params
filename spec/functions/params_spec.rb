@@ -116,4 +116,28 @@ describe Puppet::Parser::Functions.function(:params) do
       end
     end
   end
+
+  context "using non-default hashes" do
+    it 'should be able to load a different hash than default' do
+      Puppet[:code] = <<-'EOP'
+        class ntp::params { $nodefault = { package => { foo => 'bar' }, config => { steve => 'bob' } } }
+        class test(
+          $options = $ntp::params::nodefault,
+        ) inherits ntp::params {
+          $expected_return = {
+            package => { foo => 'foobar' },
+            config => { steve => 'bob' },
+          }
+          if params($options, 'ntp', 'nodefault') != $expected_return {
+            fail('params() did not return what is expected')
+          }
+        }
+
+        class { 'test':
+          options => { package => { foo => 'foobar' } },
+        }
+      EOP
+      scope.compiler.compile
+    end
+  end
 end

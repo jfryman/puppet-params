@@ -2,10 +2,11 @@ module Puppet::Parser::Functions
   newfunction(:params, :type => :rvalue) do |args|
     options = args[0]
     module_lookup = args[1]
-    defaults = self.lookupvar("#{module_lookup}::params::defaults")
+    hash = args[2].nil? ? 'defaults' : args[2]
+    defaults = self.lookupvar("#{module_lookup}::params::#{hash}")
 
     # Bail out unless we have all required arguments
-    raise Puppet::ParseError, "params() requires two arguments" unless args.length == 2
+    raise Puppet::ParseError, "params() requires two arguments" unless args.length == 2 or args.length == 3
 
     # Bail out if passed data is not a hash
     raise Puppet::ParseError, "Passed options is not a hash" unless options.class == Hash
